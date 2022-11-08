@@ -9,14 +9,9 @@ name: Deploy Bicep files
 variables:
   resourceGroupName: 'RG_PRBS_CCVP'
   location: 'eastus'
-  templateFile: 'main.bicep'
-  parameterFile: 'main.parameters.dev.json'
 
 steps:
   displayName: 'Compile Bicep file'
-- script: az bicep build --file src/main.bicep
-- task: AzureResourceManagerTemplateDeployment@3
-  displayName: Preview Bicep Changes
   inputs:
     deploymentMode: 'Incremental'
     deploymentScope: 'Resource Group'
@@ -24,15 +19,14 @@ steps:
     resourceGroupName: 'RG_PRBS_CCVP'
     csmParametersFile: '$(Build.SourcesDirectory)/src/main.parameters.dev.json'
     csmFile: '$(Build.SourcesDirectory)/src/main.json'
-    action: 'Create Or Update Resource Group'
-    scriptType: bash
-    azureResourceManagerConnection: 'MyARMConnection'
-    templateLocation: 'Linked artifact'
-    overrideParameters: '-location centralus'
     scriptLocation: inlineScript
     inlineScript: |
       az --version
       az group create --name $(resourceGroupName) --location $(location)
-      az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) --parameters $(parameterFile) 
+      az deployment group create 
+                --template-file $(Build.SourcesDirectory)/main.bicep `
+                --parameters $(Build.SourcesDirectory)/main.parameters.dev.json `
+                --resource-group $(ResourceGroupName) `
+ 
 
   
