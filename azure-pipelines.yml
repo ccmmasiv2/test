@@ -19,6 +19,8 @@ steps:
     resourceGroupName: 'RG_PRBS_CCVP'
     scriptLocation: inlineScript
     inlineScript: |
+      az account set --subscription ecf34c89-97c5-4dcd-8d53-4565afc7770a
+      az configure --defaults group=RG_PRBS_CCVP
       az group deployment create --resource-group RG_PRBS_CCVP --template-file main.bicep --parameters main.parameters.dev.json
 
 
