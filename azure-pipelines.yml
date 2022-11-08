@@ -1,0 +1,23 @@
+trigger:
+- master
+
+name: Deploy Bicep files
+
+variables:
+  resourceGroupName: 'RG_PRBS_CCVP'
+  location: 'eastus'
+  templateFile: 'main.bicep'
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureCLI@2
+  displayName: Preview Bicep Changes
+  inputs:
+    azureSubscription: 'Microsoft-Azure-0(ecf34c89-97c5-4dcd-8d53-4565afc7770a)'
+    scriptType: bash
+    scriptLocation: inlineScript
+    inlineScript: |
+      az --version
+      az group create --name $(resourceGroupName) --location $(location)
+      az deployment group create --resource-group $(resourceGroupName) --template-file $(templateFile) 
