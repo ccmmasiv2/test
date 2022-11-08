@@ -17,16 +17,10 @@ steps:
     deploymentScope: 'Resource Group'
     subscriptionId: 'ecf34c89-97c5-4dcd-8d53-4565afc7770a'
     resourceGroupName: 'RG_PRBS_CCVP'
-    csmParametersFile: '$(Build.SourcesDirectory)/src/main.parameters.dev.json'
-    csmFile: '$(Build.SourcesDirectory)/src/main.json'
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az group create --name $(resourceGroupName) --location $(location)
-      az deployment group create 
-                --template-file $(Build.SourcesDirectory)/main.bicep `
-                --parameters $(Build.SourcesDirectory)/main.parameters.dev.json `
-                --resource-group $(ResourceGroupName) `
+      az group create --name $(resourceGroupName) --location $(location) az deployment group create --template-file main.bicep --parameters main.parameters.dev.json --resource-group $(ResourceGroupName) 
  
 
   
