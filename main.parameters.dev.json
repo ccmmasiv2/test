@@ -1,0 +1,249 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": { 
+        "location": {
+            "value": "eastus"
+        },
+        "appServicePlanName": {
+            "value": "CCVPAPSPLAPP"
+        },
+        "appServicePlanSkuName": {
+            "value": "F1"
+        },
+        "appServicePlanTierName": {
+            "value": "Free"
+        },
+        "appServiceBackNames": {
+            "value": ["NULO1","CCVPAPWBSECB","CCVPAPWBINTE","CCVPAPWBCORE"]
+        },
+        "appServiceFrontNames": {
+            "value": ["CCVPAPWBFRONT"]
+        },
+        "httpsOnly": {
+            "value": [true, true, true, true]
+        },
+        "minTlsVersion": {
+            "value": ["1.2", "1.2", "1.2", "1.2"]
+        },
+        "FrameworkName": {
+            "value": ["Node", ".NET", ".NET", ".NET"]
+        },
+        "FrameworkVersion": {
+            "value": ["18","5.0", "5.0", "5.0"]
+        },
+        "alwaysOn": {
+            "value": [false, false, false, false]
+        },
+        "managedPipelineMode": {
+            "value": ["Integrated", "Integrated", "Integrated", "Integrated"]
+        },
+        "webSocketsEnabled": {
+            "value": [false, false, false, false]
+        },
+        "remoteDebuggingEnabled": {
+            "value": [false, false, false, false]
+        },
+        "http20Enabled": {
+            "value": [false, false, false, false]
+        },
+        "cors_supportCredentials": {
+            "value": [true, true, true, false]
+        },
+        "cors_allowedOrigins": {
+            "value": ["https://ccvpapwbfrontprbs.azurewebsites.net","https://ccvpapwbfrontprbs.azurewebsites.net","https://ccvpapwbfrontprbs.azurewebsites.net",""]
+        },
+        "clientAffinityEnabled": {
+            "value": [true, true, true, true]
+        },
+        "clientCertEnabled": {
+            "value": [false, false, false, false]
+        },        
+        "serverName": {
+            "value": "srvsqlccvp"
+        },
+        "administratorLogin": {
+            "value": "sajaramillom"
+        },
+        "administratorLoginPassword": {
+            "value": "Agustin#2413"
+        },
+        "minimalTlsVersion": {
+            "value": "1.2"
+        },
+        "publicNetworkAccess": {
+            "value": "Enabled"
+        },
+        "restrictOutboundNetworkAccess": {
+            "value": "Enabled"
+        },
+        "DBName": {
+            "value": ["CCVPSQLSTGM","CCVPSQLCORE"]
+        },
+        "DBCollation": {
+            "value": ["SQL_Latin1_General_CP1_CI_AS","SQL_Latin1_General_CP1_CI_AS"]
+        },
+        "databasTier": {
+            "value": ["basic","basic"]
+        },
+        "databaseDTU": {
+            "value": [5, 5]
+        },
+        "databaseMaxSize": {
+            "value": [2147483648, 2147483648]
+        },
+        "serviceBusNamespaceName": {
+            "value": "ccvpbuscoreprbnss"
+        },
+        "serviceBusQueueNames": {
+            "value": ["commercialactivityinterrupt","commercialactivityvalidation","solicitudeprice"]
+        },
+        "ServiceBustier": {
+            "value": "Standard"
+        },
+        "serviceBusDisableLocalAuth": {
+            "value": false
+        },
+        "serviceBusRigths": {
+            "value": ["Listen","Manage","Send"]
+        },
+        "serviceBusmaxSizeInMegabytes": {
+            "value": 1024
+        },
+        "serviceBusrequiresDuplicate": {
+            "value": false
+        },
+        "serviceBusrequiresSession": {
+            "value": false
+        },
+        "serviceBusdefaultMessageTime": {
+            "value": "P10675199DT2H48M5.4775807S"
+        },
+        "servicedeadLetteringOnMessageExpiration": {
+            "value": false
+        },
+        "serviceBusMaxDeliveryCount": {
+            "value": 10
+        },
+        "serviceBusduplicateDetectionHistoryTimeWindow": {
+            "value": "PT10M"
+        },
+        "serviceBusEnablePartitioning": {
+            "value": false
+        },
+        "serviceBusEnableExpress": {
+            "value": false
+        },
+        "serviceBusLockDuration": {
+            "value": "PT5M"
+        },
+        "keyVaultName": {
+            "value": "CCVPAPKEYV"
+        },
+        "keyVaultenabledForDeployment": {
+            "value": false
+        },
+        "keyVaultenabledForDiskEncryption": {
+            "value": false
+        },
+        "keyVaultenabledForTemplateDeployment": {
+            "value": false
+        },
+        "keyVaultBypass": {
+            "value": "AzureServices"
+        },
+        "keyVaultDefaultAction": {
+            "value": "Allow"
+        },
+        "keyVaultFamily": {
+            "value": "A"
+        },
+        "skuName": {
+            "value": "standard"
+        },        
+        "appInsigthsName": {
+            "value": "CCVPAPIGLOG"
+        },
+        "appInsigthstype": {
+            "value": "other"
+        },
+        "appInsigthsrequestSource": {
+            "value": "rest"
+        },
+        "appInsigthsflowType": {
+            "value": "Bluefield"
+        },
+        "storageAccountSku": {
+            "value": "Standard_LRS"
+        },
+        "logicAppName": {
+            "value": "CCVPLAPPAUTO"
+        },
+        "logicAppStorageName": {
+            "value": "lastoragename"
+        },
+        "logicAppStorageKind": {
+            "value": "StorageV2"
+        },
+        "logicAppallowBlobPublicAccess": {
+            "value": false
+        },
+        "logicAppAccessTier": {
+            "value": "Hot"
+        },
+        "logicAppsupportsHttpsTrafficOnly": {
+            "value": true
+        },
+        "minimumElasticSize": {
+            "value": 1
+        },
+        "laMinTlsVersion": {
+            "value": "TLS1_2"
+        },
+        "laServicePlanName": {
+            "value": "laServicePlanSkuTier"
+        },
+        "laServicePlanSkuTier": {
+            "value": "WorkflowStandard"
+        },
+        "laServicePlanSkuName": {
+            "value": "WS1"
+        },
+        "laServiceContent": {
+            "value": "app-logicservice-a6e9"
+        },
+        "laExtensionID": {
+            "value": "Microsoft.Azure.Functions.ExtensionBundle.Workflows"
+        },
+        "laExtensionName": {
+            "value": "[1.*, 2.0.0)"
+        },
+        "laAppKind": {
+            "value": "workflowApp"
+        },
+        "laIsSpot": {
+            "value": false
+        },
+        "lazoneRedundant": {
+            "value": false
+        },
+        "laKind": {
+            "value": "functionapp,workflowapp"
+        },
+        "laWorkerProcess": {
+            "value": true
+        },
+        "laAffinityEnabled": {
+            "value": false
+        },
+        "maximumElasticSize": {
+            "value": 3
+        },
+        "laelasticScaleEnabled": {
+            "value": true
+        },
+        "Prefix": {
+            "value": "v882sj"
+        }
+    }
+}
