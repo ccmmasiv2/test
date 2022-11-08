@@ -11,16 +11,17 @@ variables:
   location: 'eastus'
 
 steps:
+- task: AzureCLI@2
   displayName: 'Compile Bicep file'
   inputs:
-    deploymentMode: 'Incremental'
-    deploymentScope: 'Resource Group'
+    scripttype: 'bash'
     subscriptionId: 'ecf34c89-97c5-4dcd-8d53-4565afc7770a'
     resourceGroupName: 'RG_PRBS_CCVP'
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az group create --name $(resourceGroupName) --location $(location) az deployment group create --template-file main.bicep --parameters main.parameters.dev.json --resource-group $(ResourceGroupName) 
+      az group create --name $(resourceGroupName) --location $(location) 
+      az deployment group create --resource-group $(ResourceGroupName) --template-file main.bicep --parameters main.parameters.dev.json
  
 
   
