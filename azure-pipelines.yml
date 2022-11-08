@@ -14,7 +14,6 @@ steps:
 - task: AzureCLI@2
   displayName: 'Compile Bicep file'
   inputs:
-    azureSubscription: 'Microsoft-Azure-0(ecf34c89-97c5-4dcd-8d53-4565afc7770a)'
     scriptType: 'bash'
     subscriptionId: 'ecf34c89-97c5-4dcd-8d53-4565afc7770a'
     resourceGroupName: 'RG_PRBS_CCVP'
